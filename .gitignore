@@ -294,3 +294,4 @@ build-dir
 
 *.o
 __SCE__*/
+/%__SCE__bin/RSDKv4/EBOOT.PBP
