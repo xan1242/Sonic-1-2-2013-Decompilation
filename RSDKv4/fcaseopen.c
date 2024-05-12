@@ -23,8 +23,13 @@ THE SOFTWARE.
 #include "fcaseopen.h"
 
 #if !defined(_WIN32)
+#include <alloca.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef _PSP_FW_VERSION
+#include "PSP/extrastring.h"
+#endif
 
 #include <dirent.h>
 #include <errno.h>

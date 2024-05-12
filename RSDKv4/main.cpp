@@ -1,10 +1,25 @@
 #include "RetroEngine.hpp"
 
+#include <pspuser.h>
+#include <pspctrl.h>
+
+#undef main
+
 #if !RETRO_USE_ORIGINAL_CODE
 
 #if RETRO_PLATFORM == RETRO_WIN
 #include "Windows.h"
 #endif
+
+//#if RETRO_PLATFORM == RETRO_PSP¸
+
+/* Define the module info section */
+PSP_MODULE_INFO("RSDKv4", 0, 1, 1);
+
+/* Define the main thread's attribute value (optional) */
+PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER | THREAD_ATTR_VFPU);
+
+//#endif
 
 void parseArguments(int argc, char *argv[])
 {
@@ -27,8 +42,8 @@ void parseArguments(int argc, char *argv[])
             Engine.startSceneID[b] = 0;
         }
 
-        find = strstr(argv[a], "console=true");
-        if (find) {
+        //find = strstr(argv[a], "console=true");
+        /*if (find)*/ {
             engineDebugMode       = true;
             Engine.devMenu        = true;
             Engine.consoleEnabled = true;
